@@ -29,6 +29,14 @@ img:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .card:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transform: translateY(-5px);
