@@ -1,113 +1,204 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>My Interactive Website</title>
     <link rel="stylesheet" href="about-me.css">
     <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #ff6584;
+            --accent: #43e97b;
+            --bg: #f0f4fd;
+            --card-bg: #fff;
+            --text: #232946;
+            --muted: #6b7280;
+        }
+        
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f5f7fa;
+            background: linear-gradient(135deg, var(--bg) 60%, #e0e7ff 100%);
             margin: 0;
             padding: 0;
+            color: var(--text);
         }
         h1 {
             text-align: center;
-            color: #2d3a4b;
+            color: var(--primary);
             margin-top: 40px;
+            letter-spacing: 2px;
+            font-size: 2.6rem;
+            font-weight: 700;
+            text-shadow: 0 2px 12px #b3b3ff33;
         }
         p {
-            color: #4a5568;
+            color: var(--muted);
+            font-size: 1.08rem;
         }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .card-container .card {
+            flex: 1 1 340px;
+            max-width: 420px;
+            min-width: 280px;
+        } 
+
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .image-row img {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 30%;
+            width: 100%;
+            height: auto;
+        }
+
+
+        
+
+@media (max-width: 900px) {
+    .card-container {
+        flex-direction: column;
+        gap: 18px;
+    }
+}
+
         .card {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
-            margin: 32px auto;
-            max-width: 400px;
-            padding: 32px 28px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: linear-gradient(120deg, var(--card-bg) 80%, #f7eaff 100%);
+            border-radius: 20px;
+            box-shadow: 0 6px 32px rgba(108, 99, 255, 0.10);
+            margin: 36px auto;
+            max-width: 420px;
+            padding: 36px 30px;
+            transition: transform 0.22s, box-shadow 0.22s;
+            border: 2px solid #ece9ff;
         }
         .card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 12px 32px rgba(44, 62, 80, 0.18);
+            transform: translateY(-12px) scale(1.035);
+            box-shadow: 0 16px 40px rgba(255, 101, 132, 0.18);
+            border-color: var(--primary);
         }
         ul {
-            padding-left: 20px;
+            padding-left: 22px;
         }
         ul li {
-            margin: 10px 0;
-            padding: 6px 12px;
-            border-radius: 8px;
-            transition: background 0.2s, color 0.2s;
+            margin: 12px 0;
+            padding: 8px 16px;
+            border-radius: 10px;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
             cursor: pointer;
+            background: #f3f7fa;
+            color: var(--text);
+            font-weight: 500;
         }
         ul li:hover {
-            background: #e3eafc;
-            color: #2b6cb0;
+            background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+            color: #fff;
+            transform: scale(1.06);
+            box-shadow: 0 2px 12px #ff658444;
         }
         img {
-            border-radius: 12px;
-            transition: transform 0.3s;
+            border-radius: 14px;
+            transition: transform 0.3s, box-shadow 0.3s;
             display: block;
-            margin: 16px auto 0 auto;
-            box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+            margin: 18px auto 0 auto;
+            box-shadow: 0 4px 18px #6c63ff22;
+            border: 3px solid #e0e7ff;
         }
         img:hover {
-            transform: scale(1.08);
+            transform: scale(1.09) rotate(-2deg);
+            box-shadow: 0 8px 32px #ff658444;
+            border-color: var(--secondary);
         }
         h2 {
-            color: #2b6cb0;
-            margin-bottom: 12px;
+            color: var(--secondary);
+            margin-bottom: 14px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
         .section-title {
             text-align: center;
             margin-top: 48px;
-            color: #2d3a4b;
+            color: var(--primary);
+        }
+        .video-section {
+            background: linear-gradient(90deg, #e0e7ff 60%, #f7eaff 100%);
+            border-radius: 18px;
+            box-shadow: 0 4px 18px #43e97b22;
+            max-width: 420px;
+            margin: 36px auto 48px auto;
+            padding: 28px 0 20px 0;
+            text-align: center;
+        }
+        video {
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 2px 12px #43e97b33;
+            background: #fff;
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card, .video-section {
+                max-width: 95vw;
+                padding: 18px 6vw;
+            }
+            img, video {
+                width: 90vw !important;
+                height: auto !important;
+            }
         }
     </style>
 </head>
 <body>
     <h1>Welcome to My Interactive Website!</h1>
-    <p style="text-align:center;">Hi! My name is Adit. Hover over elements to see them change!</p>
+    <p style="text-align:center; font-size:1.15rem;">Hi! My name is Adit. Hover over elements to see them change!</p>
+    
+    <div class="card-container">
+        <div class="card">
+            <h2>About Me</h2>
+            <p>I'm a high school student learning web development!</p>
+            <p>Hover over this card to see it lift up!</p>
+        </div>
+        
+        <div class="card">
+            <h2>My Interests</h2>
+            <p>Hover over the items below:</p>
+            <ul>
+                <li>Web Development</li>
+                <li>Creating Cool Websites</li>
+                <li>Playing Chess</li>
+                <li>Watching TV</li>
+            </ul>
+        </div>
+    </div>
     
     <div class="card">
-        <h2>About Me</h2>
-        <p>I'm a high school student learning web development!</p>
-        <p>Hover over this card to see it lift up!</p>
-    </div>
-    
-    <div class="card">
-        <h2>My Interests</h2>
-        <p>Hover over the items below:</p>
-        <ul>
-            <li>Web Development</li>
-            <li>Creating Cool Websites</li>
-            <li>Playing Chess</li>
-            <li>Watching TV</li>
-        </ul>
-    </div>
-    
-    <div class="card">
-        <h2>My Favorite Image</h2>
-        <p>Hover over the image to make it bigger!</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/ChessSet.jpg/800px-ChessSet.jpg" width="300" height="300"
-             alt="Chess Set">
+        <h2>Cool Images</h2>
+        <div class="image-row">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/ChessSet.jpg/800px-ChessSet.jpg" width="300" height="300" alt="Chess Set">
+            <img src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/5%20Best%20Coding%20Programs%20for%20Aspiring%20Programmers1650304687858345.jpg" width="300" height="300" alt="Coding">
+            <img src="https://4kwallpapers.com/images/walls/thumbs_2t/5366.jpg" width="300" height="300" alt="Space">
+        </div>
     </div>
 
-    <div class="card">
-        <h2> Other Images: </h2>
-        <img src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/5%20Best%20Coding%20Programs%20for%20Aspiring%20Programmers1650304687858345.jpg" width="300" height="300"
-            alt="Coding">
-        <img src="https://4kwallpapers.com/images/walls/thumbs_2t/5366.jpg" width="300" height="300"
-            alt="Space">
+    <div class="video-section">
+        <h2>Social Media Reel</h2>
+        <video width="300" height="170" controls>
+            <source src="./static/my-movie.mov" type="video/quicktime">
+            <source src="./static/my-movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
-
-    <h2>Social Media Reel</h2>
-    <video width="300" height="170" controls>
-        <source src="./static/my-movie.mov" type="video/quicktime">
-        <source src="./static/my-movie.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
 </body>
 </html>
